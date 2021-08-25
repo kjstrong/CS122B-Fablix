@@ -49,10 +49,6 @@ The most important part of gaining performance was omitting SQL filters (e.g. WH
 
 [SingleStarServlet](src/SingleStarServlet.java)
 
-Optimizations:
-
-Used batch inserts to increase speed by around 20%
-
 # Contributions:
 
 Kyle:
