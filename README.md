@@ -25,30 +25,6 @@ On the other hand, for Director and Stars, we matched the parameter to be at the
 
 The most important part of gaining performance was omitting SQL filters (e.g. WHERE) when no parameter was provided.
 
-# Prepared Statements
-
-[ActorParser](src/ActorParser.java)
-
-[CastParser](src/CastParser.java)
-
-[DashboardLoginServlet](src/DashboardLoginServlet.java)
-
-[DashboardAddMovieServlet](src/DashboardAddMovieServlet.java)
-
-[DashboardAddStarServlet](src/DashboardAddStarServlet.java)
-
-[LoginServlet](src/LoginServlet.java)
-
-[MainParser](src/MainParser.java)
-
-[MovieListServlet](src/MovieListServlet.java)
-
-[PlaceOrder](src/PlaceOrder.java) 
-
-[SingleMovieServlet](src/SingleMovieServlet.java)
-
-[SingleStarServlet](src/SingleStarServlet.java)
-
 # Contributions:
 
 Kyle:
@@ -96,8 +72,6 @@ Project5:
 Set up Master/Slave instances, created Load Balancers
 
 # Connection Pooling
-
-  Configuration for JDBC Connection Pooling: [context.xml](web/META-INF/context.xml)
   
   In our Fablix code, when a query needs to be made, our code pulls a connection from the JDBC connection pool. The connection is then used for whatever queries are needed and then closed when all queries have been retrieved. Connection pooling ensures that our code doesn't need to create a new connection whenever we need to access the MySql database. This ends up saving time because we don't need to spend extra resources creating a new JDBC connection and whatever data structures that are needed to do so.
   
@@ -105,7 +79,7 @@ Set up Master/Slave instances, created Load Balancers
 
 
 # Master/Slave
-  In order to implement Master/Slave functionality, it was necessary to create a second Data Source to handle servlets that wrote to the database, such as PlaceOrder and DashboardAddStar. This Data Source is in [context.xml](web/META-INF/context.xml) and points to the Master MySQL instance. Therefore, whenever a servlet wrote to the database, it wrote to the Master instance which propagated to the Slave.
+  In order to implement Master/Slave functionality, it was necessary to create a second Data Source to handle servlets that wrote to the database, such as PlaceOrder and DashboardAddStar. This Data Source is in context.xml and points to the Master MySQL instance. Therefore, whenever a servlet wrote to the database, it wrote to the Master instance which propagated to the Slave.
    
 
 # JMeter TS/TJ Time Logs
